@@ -22,10 +22,10 @@ void rb_memory_barrier()
 #define MIN(a,b) ((a)<(b)?(a):(b))
 
 typedef struct ring_buffer {
-    unsigned int read_;             /* 读偏移 */
-    unsigned int write_;            /* 写偏移 */
-    unsigned int len_;              /* 数组的长度 */
-    char buf_[0];                   /* 零长数组 */
+    unsigned int read_;             /* read pos */
+    unsigned int write_;            /* write pos */
+    unsigned int len_;              /* buffer length */
+    char buf_[0];                   /* pointer to buffer */
 } ring_buffer;
 
 void *rb_malloc(unsigned int buffer_size)
