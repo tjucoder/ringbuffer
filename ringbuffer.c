@@ -42,8 +42,9 @@ typedef struct ring_buffer {
 
 void *rb_malloc(unsigned int buffer_size)
 {
+    ring_buffer *buffer = NULL;
     buffer_size = next_pow_of_2(buffer_size);
-    ring_buffer *buffer = (ring_buffer *)malloc((int)(&(((ring_buffer *)0)->buf_)) + buffer_size);
+    buffer = (ring_buffer *)malloc((int)(&(((ring_buffer *)0)->buf_)) + buffer_size);
     memset(buffer + (int)(&(((ring_buffer *)0)->buf_)), 0, buffer_size);
     buffer->read_ = 0;
     buffer->write_ = 0;
